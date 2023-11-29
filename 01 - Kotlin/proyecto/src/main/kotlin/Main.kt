@@ -142,7 +142,7 @@ fun main(args: Array<String>) {
             }
     println(respuestaAll) // false
 
-    // REDUCE: Itera un arregla y guarda el acumulado
+    // REDUCE: Itera un arreglo y guarda el acumulado
     // ACUMULA LOS VALORES
     // EJ: Acumula la suma de todos los valores
 
