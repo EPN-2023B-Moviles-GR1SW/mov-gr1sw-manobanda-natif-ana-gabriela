@@ -13,7 +13,6 @@ import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
-
     val callbackContenidoCIntentExplicitoParametros = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ){
@@ -62,6 +61,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
+
+        // Inicializar la Base de datos Sqlite
+        EBaseDeDatos.tablaEntrenador = ESqliteHelperEntrenador(this)
+
         val botonCicloVida = findViewById<Button>(R.id.btn_ciclo_vida)
         botonCicloVida
             .setOnClickListener{
@@ -90,6 +93,12 @@ class MainActivity : AppCompatActivity() {
             .setOnClickListener {
                 abrirActividadConParametros(
                     CIntentExplicitoParametros::class.java)
+            }
+
+        val botonSqlite = findViewById<Button>(R.id.btn_sqlite)
+        botonSqlite
+            .setOnClickListener {
+                irActividad(ECrudEntrenador::class.java)
             }
         }
 
