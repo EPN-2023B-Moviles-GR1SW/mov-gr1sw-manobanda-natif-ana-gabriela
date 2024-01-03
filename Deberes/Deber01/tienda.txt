@@ -1,3 +1,0 @@
-1,Mi Tienda,Dirección de la tienda,123456789
-1,Producto 1,10.0,50,true
-2,Producto 2,20.0,30,false
