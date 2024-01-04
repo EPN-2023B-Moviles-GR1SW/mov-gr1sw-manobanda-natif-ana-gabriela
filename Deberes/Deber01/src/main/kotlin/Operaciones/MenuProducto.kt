@@ -13,16 +13,27 @@ class MenuProducto(
     private val scanner = Scanner(System.`in`)
 
     fun mostrarMenu(): Int {
-        println("\n------------------  MENÚ PRODUCTOS ------------------ ")
-        println("1. Agregar Producto")
-        println("2. Mostrar Productos")
-        println("3. Mostrar Productos de una tienda")
-        println("4. Actualizar Producto")
-        println("5. Eliminar Producto")
-        println("6. Ir al menú principal")
-        print("\nSeleccione una opción: ")
+        while (true) {
+            try {
+                println("\n------------------  MENÚ PRODUCTOS ------------------ ")
+                println("1. Crear Producto")
+                println("2. Mostrar Productos")
+                println("3. Mostrar Productos de una tienda")
+                println("4. Actualizar Producto")
+                println("5. Eliminar Producto")
+                println("6. Ir al menú principal")
+                print("\nSeleccione una opción: ")
 
-        return scanner.nextInt()
+                val input = readLine()?.toInt()
+                if (input != null && input in 1..6) {
+                    return input
+                } else {
+                    println("Por favor, ingrese una opción válida (1-6).")
+                }
+            } catch (e: NumberFormatException) {
+                println("Por favor, ingrese un número válido.")
+            }
+        }
     }
 
     fun ejecutarOpcion(opcion: Int) {
@@ -64,14 +75,32 @@ class MenuProducto(
 
         println("\n\t -- Ingresa los datos del producto a crear --")
 
-        print("\tCódigo: ")
-        val codigo = readLine()?.toInt() ?: 0
+        var codigo: Int? = null
+        while (codigo == null) {
+            print("\tCódigo: ")
+            codigo = readLine()?.toIntOrNull()
+            if (codigo == null) {
+                println("\tDebe ingresar un valor válido para el código.")
+            }
+        }
 
-        print("\tNombre: ")
-        val nombre = readLine() ?: ""
+        var nombre: String? = null
+        while (nombre.isNullOrBlank()) {
+            print("\tNombre: ")
+            nombre = readLine()
+            if (nombre.isNullOrBlank()) {
+                println("\tDebe ingresar un nombre para el producto.")
+            }
+        }
 
-        print("\tCantidad Disponible: ")
-        val cantidadDisponible = readLine()?.toInt() ?: 0
+        var cantidadDisponible: Int? = null
+        while (cantidadDisponible == null) {
+            print("\tCantidad Disponible: ")
+            cantidadDisponible = readLine()?.toIntOrNull()
+            if (cantidadDisponible == null) {
+                println("\tDebe ingresar una cantidad válida.")
+            }
+        }
 
         val tiendasIds = tiendasExistentes.map { it.id }
         var idTienda: Int? = null
@@ -92,20 +121,30 @@ class MenuProducto(
 
         val tienda = accesoDatosTienda.obtenerTienda(idTienda)
 
-        print("\tEstá disponible (true/false): ")
-        val disponible = readLine()?.toBoolean() ?: false
+        var disponible: Boolean? = null
+        while (disponible == null) {
+            print("\tEstá disponible (true/false): ")
+            disponible = readLine()?.toBoolean()
+            if (disponible == null) {
+                println("\tDebe ingresar un valor booleano (true/false) para la disponibilidad.")
+            }
+        }
 
-        print("\tPrecio Unitario: ")
-        val precioUnitario = readLine()?.toDouble() ?: 0.0
+        var precioUnitario: Double? = null
+        while (precioUnitario == null) {
+            print("\tPrecio Unitario: ")
+            precioUnitario = readLine()?.toDoubleOrNull()
+            if (precioUnitario == null) {
+                println("\tDebe ingresar un precio unitario válido.")
+            }
+        }
 
         val nuevoProducto = Producto(codigo, nombre, cantidadDisponible, tienda, disponible, precioUnitario)
         accesoDatosProducto.guardarProducto(nuevoProducto)
 
-        println(
-            "\n" +
-                    "\t** Producto '$nombre' creado correctamente. **\n"
-        )
+        println("\n\t** Producto '$nombre' creado correctamente. **\n")
     }
+
 
 
     fun mostrarProductos(accesoDatosProducto: AccesoDatosProducto) {

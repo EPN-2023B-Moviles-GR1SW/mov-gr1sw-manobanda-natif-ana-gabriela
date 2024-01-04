@@ -2,6 +2,7 @@ package Operaciones
 
 import Core.AccesoDatosTienda
 import Entidades.Tienda
+import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -12,16 +13,28 @@ class MenuTienda(
 
 
     fun mostrarMenu(): Int {
-        println("\n------------------ MENÚ TIENDA ------------------  ")
-        println("1. Crear Tienda")
-        println("2. Mostrar Tiendas")
-        println("3. Actualizar Tienda")
-        println("4. Eliminar Tienda")
-        println("5. Ir al menú principal")
-        print("\nSeleccione una opción: ")
+        while (true) {
+            try {
+                println("\n------------------ MENÚ TIENDA ------------------  ")
+                println("1. Crear Tienda")
+                println("2. Mostrar Tiendas")
+                println("3. Actualizar Tienda")
+                println("4. Eliminar Tienda")
+                println("5. Ir al menú principal")
+                print("\nSeleccione una opción: ")
 
-        return scanner.nextInt()
+                val input = readLine()?.toInt()
+                if (input != null && input in 1..5) {
+                    return input
+                } else {
+                    println("Por favor, ingrese una opción válida (1-5).")
+                }
+            } catch (e: NumberFormatException) {
+                println("Por favor, ingrese un número válido.")
+            }
+        }
     }
+
 
     fun ejecutarOpcion(opcion: Int) {
         when (opcion) {
@@ -50,28 +63,76 @@ class MenuTienda(
         val ultimoId = tiendasExistentes.maxByOrNull { it.id }?.id ?: 0
         val nuevoId = ultimoId + 1
 
-        print("\t1. Nombre: ")
-        val nombre = readLine() ?: ""
+        var nombre: String? = null
+        while (nombre.isNullOrBlank()) {
+            print("\t1. Nombre: ")
+            nombre = readLine()
+            if (nombre.isNullOrBlank()) {
+                println("\tDebe ingresar un nombre para la tienda.")
+            }
+        }
 
-        print("\t2. Fecha de Apertura (dd/MM/yyyy): ")
-        val fechaAperturaStr = readLine() ?: ""
-        val fechaApertura = SimpleDateFormat("dd/MM/yyyy").parse(fechaAperturaStr)
+        var fechaApertura: Date? = null
+        while (fechaApertura == null) {
+            print("\t2. Fecha de Apertura (dd/MM/yyyy): ")
+            var fechaAperturaStr = readLine() ?: ""
+            if (!validarFormatoFecha(fechaAperturaStr)) {
+                println("\tPor favor, ingrese una fecha válida en formato (dd/MM/yyyy).")
+            } else {
+                fechaApertura = SimpleDateFormat("dd/MM/yyyy").parse(fechaAperturaStr)
+            }
+        }
+
+        var direccion: String? = null
+        while (direccion.isNullOrBlank()) {
+            print("\t3. Dirección: ")
+            direccion = readLine()
+            if (direccion.isNullOrBlank()) {
+                println("\tDebe ingresar una dirección para la tienda.")
+            }
+        }
+
+        var numeroEmpleados: Int? = null
+        while (numeroEmpleados == null) {
+            print("\t4. Número de empleados: ")
+            numeroEmpleados = readLine()?.toIntOrNull()
+            if (numeroEmpleados == null) {
+                println("\tDebe ingresar un número válido para los empleados.")
+            }
+        }
+
+        var contacto: String? = null
+        while (contacto.isNullOrBlank() || !contacto.matches(Regex("[0-9]+")) || contacto.length != 10) {
+            print("\t5. Contacto (10 dígitos): ")
+            contacto = readLine()?.trim()
+            if (contacto.isNullOrBlank()) {
+                println("\tDebe ingresar un contacto para la tienda.")
+            } else if (!contacto.matches(Regex("[0-9]+"))) {
+                println("\tEl contacto debe contener solo números.")
+            } else if (contacto.length != 10) {
+                println("\tEl contacto debe tener exactamente 10 dígitos.")
+            }
+        }
 
 
-        print("\t3. Dirección: ")
-        val direccion = readLine() ?: ""
-
-        print("\t4. Número de empleados: ")
-        val numeroEmpleados = readLine()?.toInt() ?: 0
-
-        print("\t5. Contacto: ")
-        val contacto = readLine() ?: ""
-
-        val nuevaTienda = Tienda(nuevoId, nombre, fechaApertura, direccion, numeroEmpleados, contacto)
+        val nuevaTienda = Tienda(nuevoId, nombre, fechaApertura!!, direccion!!, numeroEmpleados!!, contacto!!)
         accesoDatosTienda.guardarTienda(nuevaTienda)
 
         println("\n\t** Tienda '$nombre' creada correctamente. **\n")
     }
+
+    fun validarFormatoFecha(fecha: String): Boolean {
+        val formato = SimpleDateFormat("dd/MM/yyyy")
+        formato.isLenient = false // Esto hará que la validación sea estricta
+
+        try {
+            formato.parse(fecha)
+            return true
+        } catch (e: ParseException) {
+            return false
+        }
+    }
+
 
     fun mostrarTiendas(accesoDatosTienda: AccesoDatosTienda) {
         println("\n\t -- Tiendas creadas --")
