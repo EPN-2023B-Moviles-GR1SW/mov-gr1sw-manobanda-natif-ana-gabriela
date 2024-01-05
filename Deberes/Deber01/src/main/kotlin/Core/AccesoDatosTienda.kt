@@ -50,7 +50,6 @@ class AccesoDatosTienda(private val fileName: String) {
         }
     }
 
-
     fun actualizarTienda(tienda: Tienda) {
         val lineas = File(fileName).readLines()
         val nuevaLista = lineas.map { line ->

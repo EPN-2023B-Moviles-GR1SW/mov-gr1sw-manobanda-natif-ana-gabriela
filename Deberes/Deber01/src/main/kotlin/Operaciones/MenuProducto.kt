@@ -10,7 +10,6 @@ class MenuProducto(
     private val accesoDatosProducto: AccesoDatosProducto,
     private val accesoDatosTienda: AccesoDatosTienda
 ) {
-    private val scanner = Scanner(System.`in`)
 
     fun mostrarMenu(): Int {
         while (true) {

@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class AccesoDatosProducto(private val fileName: String) {
-    //private val dateFormat = SimpleDateFormat("dd/MM/yyyy")
 
     fun guardarProducto(producto: Producto) {
         val registro =
