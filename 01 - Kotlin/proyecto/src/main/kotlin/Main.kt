@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
     // Tipos de variables
     // INMUTABLES (NO se reasignan "=")
     val inmutable: String = "Gabriela"
-    // Inmutable = "Vicente";
+    //inmutable = "Vicente";
 
     // Mutables (re asignar)
     var mutable: String = "Vicente"
