@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_AccesoDatosTienda"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccesoDatosTienda">
+
+    <TextView
+        android:id="@+id/tv_AccesoDatosTienda"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="Tienda"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07" />
+
+    <EditText
+        android:id="@+id/input_fechaTienda"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="148dp"
+        android:ems="10"
+        android:hint="Ingrese la fecha de apertura"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosTienda" />
+
+    <EditText
+        android:id="@+id/input_direccionTienda"
+        android:layout_width="290dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="232dp"
+        android:ems="10"
+        android:hint="Ingrese la dirección"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosTienda" />
+
+    <EditText
+        android:id="@+id/input_nombreTienda"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:hint="Ingrese el nombre"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosTienda" />
+
+    <EditText
+        android:id="@+id/input_contactoTienda"
+        android:layout_width="290dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="308dp"
+        android:ems="10"
+        android:hint="Ingrese el número de contacto"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosTienda" />
+
+    <Button
+        android:id="@+id/btn_crearActualizar"
+        android:layout_width="163dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="72dp"
+        android:text="Crear"
+        app:layout_constraintEnd_toEndOf="@+id/input_contactoTienda"
+        app:layout_constraintHorizontal_bias="0.564"
+        app:layout_constraintStart_toStartOf="@+id/input_contactoTienda"
+        app:layout_constraintTop_toBottomOf="@+id/input_contactoTienda" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
