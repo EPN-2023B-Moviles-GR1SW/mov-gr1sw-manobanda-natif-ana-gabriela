@@ -12,14 +12,8 @@ class Tienda (
     ) {
 
     override fun toString(): String {
-        val formatoFecha = SimpleDateFormat("dd/MM/yyyy")
-
         return buildString {
-            append("ID: ${id ?: "No disponible"}\n")
             append("Nombre: $nombre\n")
-            append("Fecha de Apertura: ${fechaApertura?.let { formatoFecha.format(it) } ?: "No disponible"}\n")
-            append("Dirección: $direccion\n")
-            append("Contacto: $contacto\n")
         }
     }
 }
