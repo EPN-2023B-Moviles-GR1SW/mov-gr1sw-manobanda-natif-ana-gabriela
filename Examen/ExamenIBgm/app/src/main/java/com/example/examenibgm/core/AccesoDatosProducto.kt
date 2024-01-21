@@ -1,4 +1,4 @@
-package com.example.examenibgm
+package com.example.examenibgm.core
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Switch
 import android.widget.TextView
+import com.example.examenibgm.bd.BaseDatosMemoria
+import com.example.examenibgm.R
+import com.example.examenibgm.entidades.Producto
 import com.google.android.material.snackbar.Snackbar
 
 class AccesoDatosProducto : AppCompatActivity() {
@@ -16,7 +19,7 @@ class AccesoDatosProducto : AppCompatActivity() {
         setContentView(R.layout.activity_acceso_datos_producto)
 
         val btnAccesoDatosProducto = findViewById<Button>(R.id.btn_AccesoDatosProd)
-        val idProductoAEditar = intent.getIntExtra("idLugar", 0)
+        val idProductoAEditar = intent.getIntExtra("idProducto", 0)
         val idTiendaSelected = intent.getIntExtra("id", 0)
 
         findViewById<TextView>(R.id.tv_AccesoDatosProd).text =
@@ -36,6 +39,7 @@ class AccesoDatosProducto : AppCompatActivity() {
                 findViewById<Switch>(R.id.sw_disponible).isChecked = prodEncontrado.disponible!!
             }
         }
+
         btnAccesoDatosProducto.setOnClickListener {
             try {
                 val nombre = findViewById<EditText>(R.id.input_nombreProducto)

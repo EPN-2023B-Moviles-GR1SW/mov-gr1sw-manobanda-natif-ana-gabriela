@@ -1,14 +1,14 @@
-package com.example.examenibgm
+package com.example.examenibgm.entidades
 
 import java.text.SimpleDateFormat
 import java.util.Date
 
 class Tienda (
     var id: Int?,
-    var nombre: String?,
-    var fechaApertura: Date?,
-    var direccion: String?,
-    var contacto: String?,
+    var nombre: String,
+    var fechaApertura: Date,
+    var direccion: String,
+    var contacto: String,
     ) {
 
     override fun toString(): String {

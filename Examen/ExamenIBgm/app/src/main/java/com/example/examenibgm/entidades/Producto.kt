@@ -1,4 +1,4 @@
-package com.example.examenibgm
+package com.example.examenibgm.entidades
 
 class Producto (
     var idProducto: Int?,
@@ -10,7 +10,7 @@ class Producto (
 ){
     override fun toString(): String {
         return buildString {
-            append("ID: $idProducto\n")
+            append("Código: $idProducto\n")
             append("Nombre: $nombreProducto\n")
             append("Precio Unitario: $precioUnitario\n")
             append("Cantidad Disponible: $cantidadDisponible\n")

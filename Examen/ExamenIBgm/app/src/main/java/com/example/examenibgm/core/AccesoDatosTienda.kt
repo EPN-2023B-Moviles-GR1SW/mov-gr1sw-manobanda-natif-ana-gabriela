@@ -1,14 +1,18 @@
-package com.example.examenibgm
+package com.example.examenibgm.core
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.example.examenibgm.bd.BaseDatosMemoria
+import com.example.examenibgm.R
+import com.example.examenibgm.entidades.Tienda
 import com.google.android.material.snackbar.Snackbar
 import java.text.SimpleDateFormat
 
 class AccesoDatosTienda : AppCompatActivity() {
+
     val arregloTienda = BaseDatosMemoria.arregloTienda
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,53 +44,12 @@ class AccesoDatosTienda : AppCompatActivity() {
                         formatoFecha.format(fechaApertura)
                     )
                 }
-                /*
-                findViewById<EditText>(R.id.input_fechaTienda).setText(
-                    formatoFecha.format(
-                        tiendaEncontrada.fechaApertura
-                    )
-                )
-                */
-
                 findViewById<EditText>(R.id.input_direccionTienda).setText(tiendaEncontrada.direccion)
                 findViewById<EditText>(R.id.input_contactoTienda).setText(tiendaEncontrada.contacto)
             }
         }
 
         botonCrearTienda.setOnClickListener {
-            /*
-            try {
-                val nombre = findViewById<EditText>(R.id.input_nombreTienda)
-                val fecha = findViewById<EditText>(R.id.input_fechaTienda)
-                val direccion = findViewById<EditText>(R.id.input_direccionTienda)
-                val contacto = findViewById<EditText>(R.id.input_contactoTienda)
-
-                //Eliminar pais de la lista si es que existe y crear uno nuevo
-
-                val paisEncontrado = arregloTienda
-                    .find {
-                        it.id == idTiendaAEditar
-                    }
-
-                if (paisEncontrado != null) {
-                    arregloTienda.remove(paisEncontrado)
-                }
-
-                arregloTienda.add(
-                    Tienda(
-                        arregloTienda.size + 1,
-                        nombre.text.toString(),
-                        formatoFecha.parse(fecha.text.toString()),
-                        direccion.text.toString(),
-                        contacto.text.toString(),
-                        )
-                )
-
-                finish()
-            } catch (e: Exception) {
-                mostrarSnackBar("Ups, parece que los datos son incorrectos")
-            }
-            */
             try {
                 val nombre = findViewById<EditText>(R.id.input_nombreTienda)
                 val fecha = findViewById<EditText>(R.id.input_fechaTienda)

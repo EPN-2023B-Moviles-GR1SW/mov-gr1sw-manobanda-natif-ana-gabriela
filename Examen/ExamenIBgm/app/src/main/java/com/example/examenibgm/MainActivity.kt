@@ -12,6 +12,9 @@ import android.widget.Button
 import android.widget.ListView
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.examenibgm.bd.BaseDatosMemoria
+import com.example.examenibgm.core.AccesoDatosTienda
+import com.example.examenibgm.core.ProdActivity
 
 class MainActivity : ComponentActivity()  {
     val arregloTienda = BaseDatosMemoria.arregloTienda

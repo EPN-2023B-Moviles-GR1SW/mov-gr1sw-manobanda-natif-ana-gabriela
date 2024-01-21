@@ -1,5 +1,7 @@
-package com.example.examenibgm
+package com.example.examenibgm.bd
 
+import com.example.examenibgm.entidades.Producto
+import com.example.examenibgm.entidades.Tienda
 import java.text.SimpleDateFormat
 
 class BaseDatosMemoria{
@@ -13,7 +15,7 @@ class BaseDatosMemoria{
                 Tienda(
                     1,
                     "Tienda 1",
-                    formatoFecha.parse("28/12/2020"),
+                    formatoFecha.parse("18/12/2020"),
                     "Av. 10 de agosto",
                     "0998314961",
                     )
@@ -22,7 +24,7 @@ class BaseDatosMemoria{
                 Tienda(
                     2,
                     "Tienda 2",
-                    formatoFecha.parse("28/12/2020"),
+                    formatoFecha.parse("10/10/2021"),
                     "Av. naciones unidas",
                     "0995752038",
                     )
@@ -31,7 +33,7 @@ class BaseDatosMemoria{
                 Tienda(
                     3,
                     "Tienda 3",
-                    formatoFecha.parse("28/12/2020"),
+                    formatoFecha.parse("09/04/2020"),
                     "Av. mariscal sucre",
                     "0998314961",
                 )
@@ -41,7 +43,7 @@ class BaseDatosMemoria{
             arregloProducto.add(
                 Producto(
                     1,
-                    "P1",
+                    "Producto 1",
                     100.0,
                     25,
                     false,
@@ -51,7 +53,7 @@ class BaseDatosMemoria{
             arregloProducto.add(
                 Producto(
                     2,
-                    "P2",
+                    "Producto 2",
                     50.0,
                     35,
                     true,
@@ -61,7 +63,7 @@ class BaseDatosMemoria{
             arregloProducto.add(
                 Producto(
                     3,
-                    "P3",
+                    "Producto 3",
                     20.0,
                     45,
                     true,
@@ -71,7 +73,7 @@ class BaseDatosMemoria{
             arregloProducto.add(
                 Producto(
                     4,
-                    "P1",
+                    "Producto 1",
                     100.0,
                     55,
                     true,
@@ -81,7 +83,7 @@ class BaseDatosMemoria{
             arregloProducto.add(
                 Producto(
                     5,
-                    "P2",
+                    "Producto 2",
                     50.0,
                     65,
                     true,
@@ -91,7 +93,7 @@ class BaseDatosMemoria{
             arregloProducto.add(
                 Producto(
                     6,
-                    "P3",
+                    "Producto 3",
                     20.0,
                     75,
                     true,
@@ -101,7 +103,7 @@ class BaseDatosMemoria{
             arregloProducto.add(
                 Producto(
                     7,
-                    "P4",
+                    "Producto 1",
                     100.0,
                     85,
                     true,
@@ -111,7 +113,7 @@ class BaseDatosMemoria{
             arregloProducto.add(
                 Producto(
                     8,
-                    "P5",
+                    "Producto 2",
                     50.0,
                     95,
                     true,
@@ -121,7 +123,7 @@ class BaseDatosMemoria{
             arregloProducto.add(
                 Producto(
                     9,
-                    "P6",
+                    "Producto 3",
                     20.0,
                     105,
                     true,

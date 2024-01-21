@@ -5,7 +5,7 @@
     android:id="@+id/cl_AccesoDatosTienda"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccesoDatosTienda">
+    tools:context=".core.AccesoDatosTienda">
 
     <TextView
         android:id="@+id/tv_AccesoDatosTienda"
@@ -27,7 +27,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="148dp"
         android:ems="10"
-        android:hint="Ingrese la fecha de apertura"
+        android:hint="Ingrese la fecha (dd/MM/yyyy)"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosTienda"
         app:layout_constraintHorizontal_bias="0.0"

@@ -1,4 +1,4 @@
-package com.example.examenibgm
+package com.example.examenibgm.core
 
 import android.app.Activity
 import android.content.DialogInterface
@@ -15,6 +15,9 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import com.example.examenibgm.bd.BaseDatosMemoria
+import com.example.examenibgm.R
+import com.example.examenibgm.entidades.Producto
 import com.google.android.material.snackbar.Snackbar
 
 class ProdActivity : AppCompatActivity() {
@@ -22,7 +25,7 @@ class ProdActivity : AppCompatActivity() {
     val arregloProducto = BaseDatosMemoria.arregloProducto
     var idItemSeleccionado = 0
     val arregloProd = arrayListOf<Producto>()
-    var idLugarSeleccionado = 0
+    var idProductoSeleccionado = 0
     val callbackContenidoIntentExplicito =
         registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
@@ -39,8 +42,8 @@ class ProdActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prod)
 
-        val botonCrearLugarTuristico = findViewById<Button>(R.id.btn_crearProducto)
-        botonCrearLugarTuristico.setOnClickListener {
+        val botonCrearProducto = findViewById<Button>(R.id.btn_crearProducto)
+        botonCrearProducto.setOnClickListener {
             abrirActividadConParametros(
                 AccesoDatosProducto::class.java,
                 0
@@ -55,7 +58,7 @@ class ProdActivity : AppCompatActivity() {
                 abrirActividadConParametros(
 
                     AccesoDatosProducto::class.java,
-                    idLugarSeleccionado+1
+                    idProductoSeleccionado+1
                 )
                 return true
             }
@@ -81,7 +84,7 @@ class ProdActivity : AppCompatActivity() {
         val info = menuInfo as AdapterView.AdapterContextMenuInfo
         val id = info.position
         idItemSeleccionado = id
-        idLugarSeleccionado = arregloProd[idItemSeleccionado].idProducto!!-1
+        idProductoSeleccionado = arregloProd[idItemSeleccionado].idProducto!!-1
     }
 
     fun abrirActividadConParametros(
@@ -89,30 +92,39 @@ class ProdActivity : AppCompatActivity() {
         id: Int
     ) {
         val intentExplicito = Intent(this, clase)
-        //Enviar parametros
-        //(aceptamos primitivas)
-        intentExplicito.putExtra("idLugar", id)
+        intentExplicito.putExtra("idProducto", id)
         intentExplicito.putExtra("id", intent.getIntExtra("id", 0))
-
-        //enviamos el intent con RESPUESTA
-        //RECIBIMOS RESPUESTA
         callbackContenidoIntentExplicito.launch(intentExplicito)
     }
 
-
-    fun eliminarProducto(){
+    fun eliminarProducto() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("¿Desea eliminar?")
         builder.setPositiveButton(
             "Aceptar",
-            DialogInterface.OnClickListener { _, _ ->
-                //Eliminar producto seleccionada
+            DialogInterface.OnClickListener { dialog, which ->
                 try {
-                    idLugarSeleccionado?.let { arregloProducto.removeAt(it) }
-                    arregloProd.removeAt(idItemSeleccionado)
-                    llenarDatos()
-                    mostrarSnackBar("Eliminado con éxito")
-                }catch (e: Exception){
+                    // Verificar que idItemSeleccionado no sea nulo y esté dentro de los límites del arregloProd
+                    idItemSeleccionado?.let {
+                        if (it >= 0 && it < arregloProd.size) {
+                            val idProductoAEliminar = arregloProd[it].idProducto
+                            // Verificar que idProductoAEliminar no sea nulo y esté dentro de los límites del arregloProducto
+                            idProductoAEliminar?.let { idProdAEliminar ->
+                                val indexProdAEliminar = arregloProducto.indexOfFirst { prod -> prod.idProducto == idProdAEliminar }
+                                if (indexProdAEliminar != -1) {
+                                    arregloProducto.removeAt(indexProdAEliminar)
+                                    arregloProd.removeAt(it)
+                                    llenarDatos()
+                                    mostrarSnackBar("Eliminado con éxito")
+                                } else {
+                                    mostrarSnackBar("Error al eliminar: producto no encontrado en arregloProducto")
+                                }
+                            }
+                        } else {
+                            mostrarSnackBar("Error al eliminar: índice de arregloProd fuera de límites")
+                        }
+                    }
+                } catch (e: Exception) {
                     mostrarSnackBar("Error al eliminar")
                 }
             }
@@ -124,16 +136,16 @@ class ProdActivity : AppCompatActivity() {
 
 
     fun llenarDatos(){
-        val idPaisSelected = intent.getIntExtra("id", 0)
+        val idTiendaSelected = intent.getIntExtra("id", 0)
         arregloProd.clear()
-        for (lugar in arregloProducto){
-            if (lugar.idTienda == idPaisSelected){
-                arregloProd.add(lugar)
+        for (producto in arregloProducto){
+            if (producto.idTienda == idTiendaSelected){
+                arregloProd.add(producto)
             }
         }
-        val nombrePais: String? = BaseDatosMemoria.arregloTienda[idPaisSelected-1].nombre
+        val nombreTienda: String? = BaseDatosMemoria.arregloTienda[idTiendaSelected-1].nombre
 
-        findViewById<TextView>(R.id.tv_tiendaSelected).text = nombrePais
+        findViewById<TextView>(R.id.tv_tiendaSelected).text = nombreTienda
         val listView = findViewById<ListView>(R.id.lv_productos)
         val adaptador = ArrayAdapter(
             this,
