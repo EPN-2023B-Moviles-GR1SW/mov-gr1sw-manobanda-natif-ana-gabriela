@@ -52,6 +52,7 @@ class AccesoDatosProducto : AppCompatActivity() {
                     .find {
                         it.idProducto == idProductoAEditar
                     }
+                
                 if (prodEncontrado != null) {
                     arregloProducto.remove(prodEncontrado)
                 }
