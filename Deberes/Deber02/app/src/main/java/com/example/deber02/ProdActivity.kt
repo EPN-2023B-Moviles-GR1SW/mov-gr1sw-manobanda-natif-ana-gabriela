@@ -68,7 +68,7 @@ class ProdActivity : AppCompatActivity() {
         //Llenar las opciones de menú
         val inflater = menuInflater
         inflater.inflate(R.menu.menuproducto, menu)
-        //Obtener el id del array list seleccionado
+        //Obtener el id del array list seleccionado.
         val info = menuInfo as AdapterView.AdapterContextMenuInfo
         productoSeleccionado = listView.adapter.getItem(info.position) as Producto
     }
