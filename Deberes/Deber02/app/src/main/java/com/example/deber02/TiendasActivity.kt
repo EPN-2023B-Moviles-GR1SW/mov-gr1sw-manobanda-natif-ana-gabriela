@@ -77,7 +77,6 @@ class TiendasActivity : AppCompatActivity() {
         clase: Class<*>
     ){
         val intent = Intent(this, clase)
-        // NO RECIBIMOS RESPUESTA
         startActivity(intent)
         // this.startActivity()
     }
