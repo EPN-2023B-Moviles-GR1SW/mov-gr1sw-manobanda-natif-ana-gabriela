@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_crudProducto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".crud.CrudProducto">
+
+    <TextView
+        android:id="@+id/tv_AccesoDatosProd"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="PRODUCTO"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.07" />
+
+    <EditText
+        android:id="@+id/input_nombreProducto"
+        android:layout_width="290dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        android:hint="Ingrese el nombre"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosProd"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosProd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosProd" />
+
+    <EditText
+        android:id="@+id/input_cantidadDisponible"
+        android:layout_width="290dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="228dp"
+        android:ems="10"
+        android:hint="Ingrese la cantidad disponible"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosProd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosProd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosProd" />
+
+    <EditText
+        android:id="@+id/input_precioUnitario"
+        android:layout_width="290dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="140dp"
+        android:ems="10"
+        android:hint="Ingrese el precio Unitario"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosProd"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosProd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosProd" />
+
+    <Button
+        android:id="@+id/btn_CrearProd"
+        android:layout_width="163dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="404dp"
+        android:text="Crear"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosProd"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosProd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosProd" />
+
+    <Button
+        android:id="@+id/btn_updateProducto"
+        android:layout_width="163dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="464dp"
+        android:text="Actualizar"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosProd"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosProd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosProd" />
+
+    <Switch
+        android:id="@+id/sw_disponible"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="¿Se encuentra disponible?"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_CrearProd"
+        app:layout_constraintEnd_toEndOf="@+id/input_cantidadDisponible"
+        app:layout_constraintHorizontal_bias="0.468"
+        app:layout_constraintStart_toStartOf="@+id/input_cantidadDisponible"
+        app:layout_constraintTop_toBottomOf="@+id/input_cantidadDisponible"
+        app:layout_constraintVertical_bias="0.069" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

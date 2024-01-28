@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".crud.CrudTienda"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="68dp">
+
+    <TextView
+        android:id="@+id/tv_AccesoDatosTienda"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="Tienda"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.078" />
+
+    <EditText
+        android:id="@+id/input_fechaTienda"
+        android:layout_width="290dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="152dp"
+        android:ems="10"
+        android:hint="Ingrese la fecha (dd/MM/yyyy)"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosTienda" />
+
+    <EditText
+        android:id="@+id/input_direccionTienda"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="244dp"
+        android:ems="10"
+        android:hint="Ingrese la dirección"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosTienda" />
+
+    <EditText
+        android:id="@+id/input_nombreTienda"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:hint="Ingrese el nombre"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosTienda" />
+
+
+    <EditText
+        android:id="@+id/input_contactoTienda"
+        android:layout_width="290dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="328dp"
+        android:ems="10"
+        android:hint="Ingrese el número de contacto"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_AccesoDatosTienda"
+        app:layout_constraintTop_toBottomOf="@+id/tv_AccesoDatosTienda" />
+
+    <Button
+        android:id="@+id/btn_crear_bdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77" />
+
+    <Button
+        android:id="@+id/btn_actualizar_bdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actualizar"
+        app:layout_constraintEnd_toEndOf="@+id/btn_crear_bdd"
+        app:layout_constraintStart_toStartOf="@+id/btn_crear_bdd"
+        app:layout_constraintTop_toBottomOf="@+id/btn_crear_bdd" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
