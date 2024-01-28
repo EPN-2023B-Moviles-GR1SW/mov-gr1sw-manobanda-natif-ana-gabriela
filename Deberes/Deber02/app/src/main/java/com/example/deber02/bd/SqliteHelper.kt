@@ -9,7 +9,7 @@ import com.example.deber02.entidades.Tienda
 import java.text.SimpleDateFormat
 
 class SqliteHelper (
-    contexto: Context?, // this
+    contexto: Context?, 
 ) : SQLiteOpenHelper(
     contexto,
     "Deber02", // nombre bdd
