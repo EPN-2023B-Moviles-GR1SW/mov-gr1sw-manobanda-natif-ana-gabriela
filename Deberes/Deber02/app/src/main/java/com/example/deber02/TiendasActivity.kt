@@ -78,7 +78,6 @@ class TiendasActivity : AppCompatActivity() {
     ){
         val intent = Intent(this, clase)
         startActivity(intent)
-        // this.startActivity()
     }
 
     fun abrirActividadConParametros(clase: Class<*>, id: Int) {
