@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home_img"
+        android:title="Página principal" />
+    <item
+        android:id="@+id/navigation_featured"
+        android:icon="@drawable/destacados_img"
+        android:title="Destacados" />
+    <item
+        android:id="@+id/navigation_shared"
+        android:icon="@drawable/compartidos_img"
+        android:title="Compartidos" />
+    <item
+        android:id="@+id/navigation_files"
+        android:icon="@drawable/archivos_img"
+        android:title="Archivos" />
+</menu>
