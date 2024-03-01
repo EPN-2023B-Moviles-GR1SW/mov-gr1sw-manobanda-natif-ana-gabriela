@@ -1,3 +1,105 @@
 <resources>
     <string name="app_name">AppGoogleDrive</string>
+
+    <string-array name="type">
+        <item>@drawable/more_img</item>
+        <item>@drawable/more_img</item>
+        <item>@drawable/more_img</item>
+        <item>@drawable/more_img</item>
+        <item>@drawable/more_img</item>
+        <item>@drawable/more_img</item>
+        <item>@drawable/more_img</item>
+        <item>@drawable/more_img</item>
+        <item>@drawable/more_img</item>
+        <item>@drawable/more_img</item>
+    </string-array>
+
+    <string-array name="imgDestacada">
+        <item>@drawable/destacados_img</item>
+        <item>@drawable/destacados_img</item>
+        <item>@drawable/destacados_img</item>
+        <item>@drawable/destacados_img</item>
+        <item>@drawable/destacados_img</item>
+        <item>@drawable/destacados_img</item>
+        <item>@drawable/destacados_img</item>
+        <item>@drawable/destacados_img</item>
+        <item>@drawable/destacados_img</item>
+        <item>@drawable/destacados_img</item>
+    </string-array>
+
+    <string-array name="image">
+        <item>@drawable/files_img</item>
+        <item>@drawable/form_img</item>
+        <item>@drawable/pdf_img</item>
+        <item>@drawable/image_img</item>
+        <item>@drawable/doc_img</item>
+        <item>@drawable/files_img</item>
+        <item>@drawable/pdf_img</item>
+        <item>@drawable/pdf_img</item>
+        <item>@drawable/form_img</item>
+        <item>@drawable/files_img</item>
+    </string-array>
+
+    <string-array name="image2">
+        <item>@drawable/pdf_img</item>
+        <item>@drawable/pdf_img</item>
+        <item>@drawable/files_img</item>
+        <item>@drawable/image_img</item>
+        <item>@drawable/doc_img</item>
+        <item>@drawable/files_img</item>
+        <item>@drawable/pdf_img</item>
+        <item>@drawable/pdf_img</item>
+        <item>@drawable/form_img</item>
+        <item>@drawable/files_img</item>
+    </string-array>
+
+    <string-array name="name">
+        <item>Copia de usability test </item>
+        <item>Encuesta de Sistema de Usabilidad</item>
+        <item>Formulario</item>
+        <item>Evaluación del curso</item>
+        <item>Documento 2</item>
+        <item>Documento 3</item>
+        <item>Documento 4</item>
+        <item>Documento 5</item>
+        <item>Documento 6</item>
+        <item>Documento 7</item>
+    </string-array>
+
+    <string-array name="name1">
+        <item>Prueba</item>
+        <item>Gmail</item>
+        <item>Formulario</item>
+        <item>Copia de Usability test</item>
+        <item>Documento PRUEBA</item>
+        <item>Documento de Google Drive</item>
+        <item>Documento Final</item>
+      </string-array>
+
+    <string-array name="status">
+        <item>Lo abriste - 16 de febrero de 2024</item>
+        <item>Lo modificaste - 13 de enero de 2024</item>
+        <item>Editaste el documento - 7 de enero de 2024</item>
+        <item>Lo abriste - 12 de diciembre de 2023</item>
+        <item>Lo modificaste - 11 de diciembre de 2023</item>
+        <item>Editaste el documento - 16 de febrero de 2024</item>
+        <item>Lo abriste - 16 de febrero de 2024</item>
+        <item>Lo modificaste - 16 de febrero de 2024</item>
+        <item>Editaste el documento- 16 de febrero de 2024</item>
+        <item>Lo abriste - 16 de febrero de 2024</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>Modificado: 19:02</item>
+        <item>Modificado: 20:0</item>
+        <item>Modificado: 21:12</item>
+        <item>Modificado: 15 de feb.</item>
+        <item>Modificado: 10 de junio de 2024</item>
+        <item>Modificado: 12 de marzo de 2024</item>
+        <item>Modificado: 22 de noviembre de 2023</item>
+        <item>Modificado: 15 de agosto de 2023</item>
+        <item>Modificado: 19 de junio de 2023</item>
+        <item>Modificado: 20 de junio de 2022</item>
+    </string-array>
+
 </resources>
