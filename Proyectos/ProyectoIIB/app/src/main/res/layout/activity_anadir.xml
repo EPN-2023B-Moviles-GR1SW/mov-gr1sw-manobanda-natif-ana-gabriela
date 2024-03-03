@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AnadirActivity">
+
+    <EditText
+        android:id="@+id/et_anadira_descripcionE"
+        android:layout_width="333dp"
+        android:layout_height="192dp"
+        android:background="@drawable/border_background"
+        android:gravity="top|start"
+        android:hint="Descripción aquí.."
+        android:padding="16dp"
+        android:scrollbars="vertical"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="410dp"
+        android:layout_height="57dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Nueva Nota/Recordatorio"
+        app:titleMarginStart="20dp"
+        app:titleTextColor="@color/white" />
+
+    <Spinner
+        android:id="@+id/s_anadira_genero"
+        android:layout_width="241dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_anadira_generoT"
+        app:layout_constraintStart_toEndOf="@+id/tv_anadira_generoT"
+        app:layout_constraintTop_toTopOf="@+id/tv_anadira_generoT"
+        app:layout_constraintVertical_bias="0.461" />
+
+    <TextView
+        android:id="@+id/tv_anadira_limiteTiempoT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Tiempo empleado:"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_anadira_generoT"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="@+id/tv_anadira_generoT"
+        app:layout_constraintTop_toBottomOf="@+id/tv_anadira_generoT" />
+
+    <TextView
+        android:id="@+id/tv_anadira_generoT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Género:"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/et_anadira_descripcionE"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="@+id/et_anadira_descripcionE"
+        app:layout_constraintTop_toBottomOf="@+id/et_anadira_descripcionE" />
+
+    <EditText
+        android:id="@+id/et_anadira_tituloE"
+        android:layout_width="326dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:hint="Añadir el título ...."
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/tv_anadira_descripcionT"
+        app:layout_constraintEnd_toEndOf="@+id/tv_anadira_descripcionT"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_anadira_descripcionT" />
+
+    <EditText
+        android:id="@+id/et_anadira_tiempoE"
+        android:layout_width="326dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Añadir el tiempo empleado"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tv_anadira_limiteTiempoT"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_anadira_limiteTiempoT"
+        app:layout_constraintTop_toBottomOf="@+id/tv_anadira_limiteTiempoT" />
+
+    <TextView
+        android:id="@+id/tv_anadira_tituloT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Titulo:"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_anadira_tituloE"
+        app:layout_constraintEnd_toEndOf="@+id/et_anadira_tituloE"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_anadira_tituloE" />
+
+    <Spinner
+        android:id="@+id/s_anadira_tipospinner"
+        android:layout_width="194dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="44dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_andadira_tipoT"
+        app:layout_constraintStart_toEndOf="@+id/tv_andadira_tipoT"
+        app:layout_constraintTop_toTopOf="@+id/tv_andadira_tipoT"
+        app:layout_constraintVertical_bias="0.303" />
+
+    <TextView
+        android:id="@+id/tv_andadira_tipoT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Tipo:"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_anadira_tituloT"
+        app:layout_constraintEnd_toEndOf="@+id/tv_anadira_tituloT"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="@+id/tv_anadira_tituloT" />
+
+    <TextView
+        android:id="@+id/tv_anadira_descripcionT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Descripción:"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_anadira_descripcionE"
+        app:layout_constraintEnd_toEndOf="@+id/et_anadira_descripcionE"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toStartOf="@+id/et_anadira_descripcionE" />
+
+    <Button
+        android:id="@+id/btn_anadira_crear"
+        android:layout_width="162dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="196dp"
+        android:text="Crear"
+        app:layout_constraintEnd_toEndOf="@+id/et_anadira_descripcionE"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/et_anadira_descripcionE"
+        app:layout_constraintTop_toBottomOf="@+id/et_anadira_descripcionE" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

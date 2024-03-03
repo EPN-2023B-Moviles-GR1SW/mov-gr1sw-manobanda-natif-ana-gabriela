@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrarseActivity">
+
+    <EditText
+        android:id="@+id/pt_ra_username"
+        android:layout_width="322dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="60dp"
+        android:ems="10"
+        android:hint="Nombre de usuario"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/pt_ra_correo"
+        app:layout_constraintEnd_toEndOf="@+id/pt_ra_correo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pt_ra_correo" />
+
+    <Button
+        android:id="@+id/btn_ra_registrarse"
+        android:layout_width="173dp"
+        android:layout_height="55dp"
+        android:text="Registrarse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.729" />
+
+    <TextView
+        android:id="@+id/tv_ra_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Correo electrónico:"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/pt_ra_correo"
+        app:layout_constraintEnd_toEndOf="@+id/pt_ra_correo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pt_ra_correo" />
+
+    <EditText
+        android:id="@+id/pt_ra_correo"
+        android:layout_width="322dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="72dp"
+        android:ems="10"
+        android:hint="Correo Electrónico"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/p_ra_passwd"
+        app:layout_constraintEnd_toEndOf="@+id/p_ra_passwd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/p_ra_passwd" />
+
+    <TextView
+        android:id="@+id/tv_ra_passw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Contraseña:"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/p_ra_passwd"
+        app:layout_constraintEnd_toEndOf="@+id/p_ra_passwd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/p_ra_passwd" />
+
+    <EditText
+        android:id="@+id/p_ra_passwd"
+        android:layout_width="322dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="52dp"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ra_registrarse"
+        app:layout_constraintEnd_toEndOf="@+id/btn_ra_registrarse"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/btn_ra_registrarse" />
+
+    <TextView
+        android:id="@+id/tv_ra_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Nombre de usuario:"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/pt_ra_username"
+        app:layout_constraintEnd_toEndOf="@+id/pt_ra_username"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pt_ra_username" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="407dp"
+        android:layout_height="68dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Registrarse"
+        app:titleMarginStart="20dp"
+        app:titleTextColor="@color/white" />
+
+    <Button
+        android:id="@+id/btn_accesoDesdeRegistrar"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="189dp"
+        android:layout_marginBottom="16dp"
+        android:text="Acceso"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_ra_registrarse"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="146dp"
+        android:layout_height="19dp"
+        android:text="¿Tienes una cuenta?"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_accesoDesdeRegistrar"
+        app:layout_constraintEnd_toStartOf="@+id/btn_accesoDesdeRegistrar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_accesoDesdeRegistrar"
+        android:layout_marginTop="6dp"
+        android:elevation="1dp"/>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="408dp"
+        android:layout_height="198dp"
+        android:layout_marginTop="8dp"
+        android:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_ra_registrarse"
+        app:layout_constraintVertical_bias="0.347"
+        app:srcCompat="@drawable/rectangle3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
