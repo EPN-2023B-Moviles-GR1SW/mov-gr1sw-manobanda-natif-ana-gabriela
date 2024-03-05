@@ -1,0 +1,17 @@
+<!-- spinner_background.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado cuando está presionado -->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#0590FF" /> <!-- Color de fondo cuando está presionado -->
+            <corners android:radius="8dp" /> <!-- Radio de las esquinas -->
+        </shape>
+    </item>
+    <!-- Estado normal -->
+    <item>
+        <shape>
+            <solid android:color="#B02F80ED" /> <!-- Color de fondo normal -->
+            <corners android:radius="8dp" /> <!-- Radio de las esquinas -->
+        </shape>
+    </item>
+</selector>

@@ -4,54 +4,67 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".InicioActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="414dp"
-        android:layout_height="57dp"
-        android:background="?attr/colorPrimary"
+        android:layout_height="131dp"
+        android:background="@drawable/rectangle1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Inicio"
         app:titleMarginStart="20dp"
         app:titleTextColor="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_ia_librosLeidos"
-        android:layout_width="405dp"
-        android:layout_height="478dp"
+        android:layout_width="404dp"
+        android:layout_height="360dp"
         android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.412" />
+        app:layout_constraintVertical_bias="0.263" />
 
     <TextView
         android:id="@+id/tv_librosAgregados"
         android:layout_width="285dp"
         android:layout_height="37dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:gravity="center"
         android:text="BIBLIOTECA PERSONAL"
-        android:textSize="20sp"
+        android:textColor="#2196F3"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/rv_ia_librosLeidos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_ia_anadir"
-        android:layout_width="158dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="132dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="60dp"
         android:text="Crear"
+        android:background="@drawable/border_white"
         app:layout_constraintEnd_toEndOf="@+id/rv_ia_librosLeidos"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.874"
         app:layout_constraintStart_toStartOf="@+id/rv_ia_librosLeidos"
         app:layout_constraintTop_toBottomOf="@+id/rv_ia_librosLeidos" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/rectangle3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -69,12 +69,14 @@ class InicioActivity : AppCompatActivity() {
             idLibro,
             libro.data.get("tipo").toString(),
             libro.data.get("titulo").toString(),
-            libro.data.get("descripcion").toString(),
+            libro.data.get("autor").toString(),
             libro.data.get("genero").toString(),
-            null
-        )
+            libro.data.get("urlLibro").toString(),
+            libro.data.get("urlImagen").toString(),
+
+            )
         if (nuevoLibro.tipo == "Virtual") {
-            nuevoLibro.setRecordatorioCalendar(libro.data.get("virtual").toString())
+            nuevoLibro.setUrlLibroString(libro.data.get("urlLibro").toString())
         }
         this.arregloLibros.add(nuevoLibro)
     }
@@ -87,6 +89,4 @@ class InicioActivity : AppCompatActivity() {
         val intent = Intent(this, clase)
         startActivity(intent)
     }
-
-
 }

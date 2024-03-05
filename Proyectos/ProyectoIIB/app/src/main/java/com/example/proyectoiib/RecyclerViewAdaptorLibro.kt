@@ -1,5 +1,8 @@
 package com.example.proyectoiib
 
+import android.content.Intent
+import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +10,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -21,23 +29,21 @@ class RecyclerViewAdaptorLibro(
 
         private var authActual = FirebaseAuth.getInstance().currentUser
         val tituloTextView: TextView
-        val descripcionTextView: TextView
+        val autorTextView: TextView
         val generoTextView: TextView
-        //val urlLibroTextView: TextView
-        val recordatorioTextView: TextView
-        val recordatorioTituloTextView: TextView
+        val urlLibroVTextView: TextView
         val botonEliminar: ImageView
         val botonEditar: ImageView
+        val imagenLibro: ImageView
+        val tipoLibroTextView: TextView
 
         init {
             tituloTextView = view.findViewById(R.id.tv_rvnr_tituloLibro)
-            descripcionTextView = view.findViewById(R.id.tv_rvnr_descripcionE)
+            autorTextView = view.findViewById(R.id.tv_rvnr_autorLibro)
             generoTextView = view.findViewById(R.id.tv_rvnr_generoLibro)
-            //urlLibroTextView = view.findViewById(R.id.tv_urlLibro)
-
-            recordatorioTextView = view.findViewById(R.id.tv_rvnr_recordatorioE)
-            recordatorioTituloTextView = view.findViewById(R.id.tv_rvnr_recordatorioT)
-
+            urlLibroVTextView = view.findViewById(R.id.tv_rvnr_urlLibroV)
+            tipoLibroTextView = view.findViewById(R.id.tv_rvnr_tipoLibro)
+            imagenLibro = view.findViewById(R.id.img_libro)
             botonEliminar = view.findViewById<ImageView?>(R.id.iv_rvnr_eliminar)
             botonEliminar.setOnClickListener {
                 val position = adapterPosition
@@ -48,6 +54,13 @@ class RecyclerViewAdaptorLibro(
             }
             botonEditar = view.findViewById(R.id.im_rvnr_editar)
             botonEditar.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    val libroSeleccionado = lista[position]
+                    val intent = Intent(contexto, EditarActivity::class.java)
+                    intent.putExtra("libroId", libroSeleccionado.id)
+                    contexto.startActivity(intent)
+                }
             }
         }
 
@@ -65,7 +78,6 @@ class RecyclerViewAdaptorLibro(
                 libroRef.delete()
                     .addOnSuccessListener { }
                     .addOnFailureListener { }
-
             }
             builder.setNegativeButton("Cancelar", null)
             val dialogo = builder.create()
@@ -85,19 +97,52 @@ class RecyclerViewAdaptorLibro(
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val libroActual = this.lista[position]
+        Log.d("RecyclerViewAdaptor", "Titulo: ${libroActual.titulo}")
         holder.tituloTextView.text = libroActual.titulo
-        holder.descripcionTextView.text = libroActual.descripcion
+        holder.autorTextView.text = libroActual.autor
         holder.generoTextView.text = libroActual.genero
+        holder.urlLibroVTextView.text = libroActual.getUrlLibroString()
+        holder.tipoLibroTextView.text = libroActual.tipo
+        Log.d("RecyclerViewAdaptor", "URL LIBRO: ${libroActual.getUrlLibroString()}")
+        Log.d("RecyclerViewAdaptor", "Elementos lista: ${this.lista.size}")
 
-        if (libroActual.recordatorio == null) {
-            holder.recordatorioTituloTextView.visibility = View.INVISIBLE
-            holder.recordatorioTextView.visibility = View.INVISIBLE
+        if (!libroActual.urlImagen.isNullOrEmpty()) {
+            Log.d("RecyclerViewAdaptor", "Cargando imagen desde URL: ${libroActual.urlImagen}")
+            Glide.with(contexto)
+                .load(libroActual.urlImagen)
+                .centerCrop()
+                .placeholder(R.drawable.libro2) // Cambia por tu recurso de imagen de carga
+                .error(R.drawable.libroerror) // Cambia por tu recurso de imagen de error
+                .listener(object : RequestListener<Drawable> {
+                    override fun onLoadFailed(
+                        e: GlideException?,
+                        model: Any?,
+                        target: Target<Drawable>?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        Log.e("RecyclerViewAdaptor", "Error al cargar imagen: $e")
+                        return false
+                    }
+
+                    override fun onResourceReady(
+                        resource: Drawable?,
+                        model: Any?,
+                        target: Target<Drawable>?,
+                        dataSource: DataSource?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        Log.d("RecyclerViewAdaptor", "Imagen cargada correctamente")
+                        return false
+                    }
+                })
+                .into(holder.imagenLibro)
         } else {
-            holder.recordatorioTextView.text = libroActual.getRecordatorioString()
+            holder.imagenLibro.setImageResource(R.drawable.libro2) // Cambia por tu recurso de imagen predeterminada
         }
     }
 
     override fun getItemCount(): Int {
         return this.lista.size
     }
+
 }

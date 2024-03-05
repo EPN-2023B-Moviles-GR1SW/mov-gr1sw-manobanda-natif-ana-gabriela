@@ -42,15 +42,15 @@ class AccesoActivity : AppCompatActivity() {
     private fun iniciarSesion(correo: String, password: String) {
         if (correo.isNotEmpty() && password.isNotEmpty()) {
             auth.signInWithEmailAndPassword(correo, password).addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        irAActividad(InicioActivity::class.java)
-                    } else {
-                        showAlert1()
-                        findViewById<EditText>(R.id.tv_ma_correo).setText("")
-                        findViewById<EditText>(R.id.tv_ma_passw).setText("")
-                    }
-
+                if (task.isSuccessful) {
+                    irAActividad(InicioActivity::class.java)
+                } else {
+                    showAlert1()
+                    findViewById<EditText>(R.id.tv_ma_correo).setText("")
+                    findViewById<EditText>(R.id.tv_ma_passw).setText("")
                 }
+
+            }
         } else {
             showAlert("El correo y la contraseña no pueden estar vacíos")
         }

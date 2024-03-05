@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".RegistrarseActivity">
 
     <EditText
@@ -14,6 +15,64 @@
         android:ems="10"
         android:hint="Nombre de usuario"
         android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="#CACACA"
+        app:layout_constraintBottom_toTopOf="@+id/pt_ra_correo"
+        app:layout_constraintEnd_toEndOf="@+id/pt_ra_correo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pt_ra_correo" />
+
+    <EditText
+        android:id="@+id/p_ra_passwd"
+        android:layout_width="322dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#CACACA"
+        app:layout_constraintBottom_toTopOf="@+id/btn_ra_registrarse"
+        app:layout_constraintEnd_toEndOf="@+id/btn_ra_registrarse"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/btn_ra_registrarse" />
+
+    <TextView
+        android:id="@+id/tv_ra_passw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Contraseña:"
+        android:textColor="#2196F3"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/p_ra_passwd"
+        app:layout_constraintEnd_toEndOf="@+id/p_ra_passwd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/p_ra_passwd" />
+
+    <EditText
+        android:id="@+id/pt_ra_correo"
+        android:layout_width="322dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="60dp"
+        android:ems="10"
+        android:hint="Correo Electrónico"
+        android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="#CACACA"
+        app:layout_constraintBottom_toTopOf="@+id/p_ra_passwd"
+        app:layout_constraintEnd_toEndOf="@+id/p_ra_passwd"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/p_ra_passwd" />
+
+    <TextView
+        android:id="@+id/tv_ra_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Correo electrónico:"
+        android:textColor="#2196F3"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/pt_ra_correo"
         app:layout_constraintEnd_toEndOf="@+id/pt_ra_correo"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,62 +82,13 @@
         android:id="@+id/btn_ra_registrarse"
         android:layout_width="173dp"
         android:layout_height="55dp"
+        android:background="@drawable/rounded_button_background"
         android:text="Registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.729" />
-
-    <TextView
-        android:id="@+id/tv_ra_correo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="Correo electrónico:"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/pt_ra_correo"
-        app:layout_constraintEnd_toEndOf="@+id/pt_ra_correo"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/pt_ra_correo" />
-
-    <EditText
-        android:id="@+id/pt_ra_correo"
-        android:layout_width="322dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="72dp"
-        android:ems="10"
-        android:hint="Correo Electrónico"
-        android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/p_ra_passwd"
-        app:layout_constraintEnd_toEndOf="@+id/p_ra_passwd"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/p_ra_passwd" />
-
-    <TextView
-        android:id="@+id/tv_ra_passw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="Contraseña:"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/p_ra_passwd"
-        app:layout_constraintEnd_toEndOf="@+id/p_ra_passwd"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/p_ra_passwd" />
-
-    <EditText
-        android:id="@+id/p_ra_passwd"
-        android:layout_width="322dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="52dp"
-        android:ems="10"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/btn_ra_registrarse"
-        app:layout_constraintEnd_toEndOf="@+id/btn_ra_registrarse"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="@+id/btn_ra_registrarse" />
+        app:layout_constraintVertical_bias="0.751" />
 
     <TextView
         android:id="@+id/tv_ra_username"
@@ -86,6 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:text="Nombre de usuario:"
+        android:textColor="#2196F3"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/pt_ra_username"
         app:layout_constraintEnd_toEndOf="@+id/pt_ra_username"
@@ -94,9 +105,9 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="407dp"
-        android:layout_height="68dp"
-        android:background="?attr/colorPrimary"
+        android:layout_width="414dp"
+        android:layout_height="131dp"
+        android:background="@drawable/rectangle1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,40 +120,37 @@
         android:id="@+id/btn_accesoDesdeRegistrar"
         android:layout_width="107dp"
         android:layout_height="50dp"
-        android:layout_marginTop="189dp"
         android:layout_marginBottom="16dp"
         android:text="Acceso"
+        android:background="@drawable/border_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintHorizontal_bias="0.901"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_ra_registrarse"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.975" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="146dp"
         android:layout_height="19dp"
+        android:layout_marginTop="6dp"
+        android:elevation="1dp"
         android:text="¿Tienes una cuenta?"
         app:layout_constraintBottom_toBottomOf="@+id/btn_accesoDesdeRegistrar"
         app:layout_constraintEnd_toStartOf="@+id/btn_accesoDesdeRegistrar"
+        app:layout_constraintHorizontal_bias="0.359"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_accesoDesdeRegistrar"
-        android:layout_marginTop="6dp"
-        android:elevation="1dp"/>
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="408dp"
-        android:layout_height="198dp"
-        android:layout_marginTop="8dp"
-        android:elevation="0dp"
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_ra_registrarse"
-        app:layout_constraintVertical_bias="0.347"
         app:srcCompat="@drawable/rectangle3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

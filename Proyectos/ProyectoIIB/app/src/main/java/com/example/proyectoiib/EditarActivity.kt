@@ -14,8 +14,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class AnadirActivity : AppCompatActivity() {
-
+class EditarActivity : AppCompatActivity() {
+    private var libroId: String? = null
+    val opcionesGenero = arrayListOf<String>()
     private var authActual = FirebaseAuth.getInstance().currentUser
     var spinnerTipo: Spinner? = null
     var tituloEditText: EditText? = null
@@ -29,7 +30,7 @@ class AnadirActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_anadir)
+        setContentView(R.layout.activity_editar)
 
         spinnerTipo = findViewById(R.id.s_anadira_tipospinner)
         tituloEditText = findViewById(R.id.et_anadira_tituloE)
@@ -49,7 +50,7 @@ class AnadirActivity : AppCompatActivity() {
 
         val db = Firebase.firestore
         val generosRef = db.collection("generos")
-        val opcionesGenero = arrayListOf<String>()
+
 
         generosRef.get().addOnSuccessListener { generos ->
             for (genero in generos) {
@@ -83,30 +84,78 @@ class AnadirActivity : AppCompatActivity() {
             override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
-        botonCrear!!.setOnClickListener {
-            crearLibro()
+
+        libroId = intent.getStringExtra("libroId")
+        if (libroId != null) {
+            cargarDatosDelLibro()
         }
 
-
+        botonCrear!!.setOnClickListener {
+            if (libroId != null) {
+                // Si libroId no es nulo, estamos editando un libro existente
+                editarLibro()
+            }
+        }
     }
 
-    private fun crearLibro() {
+    private fun cargarDatosDelLibro() {
+        // Obtener la referencia al documento del libro en la colección de libros del usuario
+        val db = Firebase.firestore
+        val libroRef = db.collection("usuarios").document(authActual!!.uid).collection("libros")
+            .document(libroId!!)
+
+        // Obtener los datos del libro actual
+        libroRef.get().addOnSuccessListener { libro ->
+            if (libro.exists()) {
+                // Configurar los campos con los datos actuales del libro
+                spinnerTipo?.setSelection(if (libro["tipo"] == "Físico") 0 else 1)
+                tituloEditText?.setText(libro["titulo"].toString())
+                autorEditText?.setText(libro["autor"].toString())
+                spinnerGenero?.setSelection(opcionesGenero.indexOf(libro["genero"].toString()))
+                urlImagenEditar?.setText(libro["urlImagen"].toString())
+                urlLibroEditar?.setText(libro["urlLibro"].toString())
+
+                // Configurar la visibilidad de los campos según el tipo de libro
+                if (libro["tipo"] == "Físico") {
+                    urlLibroEditar?.visibility = View.INVISIBLE
+                    urlLibroTitulo?.visibility = View.INVISIBLE
+                } else {
+                    urlLibroEditar?.visibility = View.VISIBLE
+                    urlLibroTitulo?.visibility = View.VISIBLE
+                }
+            }
+        }.addOnFailureListener { e ->
+            Log.e("TAG", "Error al cargar datos del libro", e)
+        }
+    }
+
+    private fun editarLibro() {
+
+        var urlLibroVirtual = ""
+        if (urlLibroEditar!!.text.isNotEmpty()) {
+            urlLibroVirtual = urlLibroEditar!!.text.toString()
+        }
 
         val libroNuevo = hashMapOf(
-            "tipo" to spinnerTipo?.getItemAtPosition(spinnerTipo!!.selectedItemPosition).toString(),
+            "tipo" to spinnerTipo!!.getItemAtPosition(spinnerTipo!!.selectedItemPosition)
+                .toString(),
             "titulo" to tituloEditText!!.text.toString(),
             "autor" to autorEditText!!.text.toString(),
             "genero" to spinnerGenero!!.getItemAtPosition(spinnerGenero!!.selectedItemPosition)
                 .toString(),
-            "urlLibro" to urlLibroEditar!!.text.toString().trim(),
-
             "urlImagen" to urlImagenEditar!!.text.toString(),
-
-            )
+            "urlLibro" to urlLibroVirtual
+        )
 
         val db = Firebase.firestore
-        val generosRef = db.collection("usuarios").document(authActual!!.uid).collection("libros")
+        val libroRef = db.collection("usuarios").document(authActual!!.uid).collection("libros")
+            .document(libroId!!)
 
+        libroRef.update(libroNuevo as Map<String, Any>).addOnSuccessListener {
+            finish()
+        }.addOnFailureListener { e ->
+            Log.e("TAG", "Error al editar el libro", e)
+        }
         Log.e(
             "Valor del tipo",
             spinnerTipo!!.getItemAtPosition(spinnerTipo!!.selectedItemPosition).toString()
@@ -116,10 +165,6 @@ class AnadirActivity : AppCompatActivity() {
             spinnerGenero!!.getItemAtPosition(spinnerGenero!!.selectedItemPosition).toString()
         )
 
-        generosRef.add(libroNuevo).addOnSuccessListener {
-            finish()
-        }.addOnFailureListener { e ->
-            Log.e("TAG", "Error al agregar el libro", e)
-        }
     }
+
 }
