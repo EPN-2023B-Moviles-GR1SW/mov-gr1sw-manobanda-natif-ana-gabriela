@@ -36,15 +36,15 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_CUProducto" />
 
     <EditText
-        android:id="@+id/input_costoLugar"
+        android:id="@+id/input_precioUnitario"
         android:layout_width="291dp"
         android:layout_height="58dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="136dp"
         android:ems="10"
-        android:hint="Ingrese el costo"
+        android:hint="Ingrese el precio Unitario"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/tv_CUProducto"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tv_CUProducto"
         app:layout_constraintTop_toBottomOf="@+id/tv_CUProducto" />
 
@@ -79,10 +79,20 @@
         android:text="¿Se encuentra disponible?"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_createLugar"
-        app:layout_constraintEnd_toEndOf="@+id/input_costoLugar"
-        app:layout_constraintStart_toStartOf="@+id/input_costoLugar"
-        app:layout_constraintTop_toBottomOf="@+id/input_costoLugar" />
+        app:layout_constraintEnd_toEndOf="@+id/input_precioUnitario"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="@+id/input_precioUnitario"
+        app:layout_constraintTop_toBottomOf="@+id/input_precioUnitario"
+        app:layout_constraintVertical_bias="1.0" />
 
-
+    <EditText
+        android:id="@+id/input_cantidadDisponible"
+        android:layout_width="297dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:hint="Ingrese la cantidad Disponible"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/input_precioUnitario"
+        app:layout_constraintTop_toBottomOf="@+id/input_precioUnitario" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

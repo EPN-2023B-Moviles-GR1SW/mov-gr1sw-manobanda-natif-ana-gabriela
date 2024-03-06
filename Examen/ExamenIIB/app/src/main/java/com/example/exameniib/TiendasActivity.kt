@@ -57,7 +57,6 @@ class TiendasActivity : AppCompatActivity() {
         }
     }
 
-
     fun eliminarTienda(nombre: String) {
         val db = Firebase.firestore
         val tiendasRefUnico = db.collection("tiendas")
@@ -79,7 +78,6 @@ class TiendasActivity : AppCompatActivity() {
         }
     }
 
-
     fun limpiarArreglo() {
         arreglo.clear()
     }
@@ -89,13 +87,12 @@ class TiendasActivity : AppCompatActivity() {
     ) {
         val nuevaTienda = Tienda(
             tienda.data.get("nombre") as String?,
-            tienda.data.get("idioma") as String?,
-            tienda.data.get("moneda") as String?,
-            tienda.data.get("precioDolar") as Number?
+            tienda.data.get("direccion") as String?,
+            tienda.data.get("contacto") as String?,
+            tienda.data.get("fechaApertura") as String?
         )
         arreglo.add(nuevaTienda)
     }
-
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         val nombreReal = tiendaSeleccionada?.nombre ?: return super.onContextItemSelected(item)

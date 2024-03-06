@@ -86,7 +86,8 @@ class ProductoActivity : AppCompatActivity() {
     fun añadirAProducto(producto: QueryDocumentSnapshot) {
         val nuevoProducto = Producto(
             producto.data["nombreProd"] as String?,
-            producto.data["costoEntrada"] as Number?,
+            producto.data["precioUnitario"] as Number?,
+            producto.data["cantidadDisponible"] as Number?,
             producto.data["disponible"] as Boolean?,
         )
         Log.i("NuevoProducto", "Nuevo producto: $nuevoProducto")

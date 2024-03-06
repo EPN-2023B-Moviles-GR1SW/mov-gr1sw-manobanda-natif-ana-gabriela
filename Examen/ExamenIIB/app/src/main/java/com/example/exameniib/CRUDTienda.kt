@@ -21,19 +21,20 @@ class CRUDTienda : AppCompatActivity() {
         val nombreTienda = intent.getStringExtra("nombre")
 
         val nombre = findViewById<EditText>(R.id.input_nombre_tienda)
-        val idioma = findViewById<EditText>(R.id.input_idioma)
-        val moneda = findViewById<EditText>(R.id.input_moneda)
-        val precioDolar = findViewById<EditText>(R.id.input_precioDolar)
+        val direccion = findViewById<EditText>(R.id.input_direccion)
+        val contacto = findViewById<EditText>(R.id.input_contacto)
+        val fechaApertura = findViewById<EditText>(R.id.input_fechaApertura)
 
         llenarDatosFormulario(nombreTienda)
 
         val botonCrearBDD = findViewById<Button>(R.id.btn_crear_bdd)
         botonCrearBDD.setOnClickListener {
+
             val tienda = hashMapOf(
                 "nombre" to nombre.text.toString(),
-                "idioma" to idioma.text.toString(),
-                "moneda" to moneda.text.toString(),
-                "precioDolar" to precioDolar.text.toString().toDouble()
+                "direccion" to direccion.text.toString(),
+                "contacto" to contacto.text.toString(),
+                "fechaApertura" to fechaApertura.text.toString()
             )
 
             db.collection("tiendas").add(tienda).addOnSuccessListener {
@@ -48,9 +49,9 @@ class CRUDTienda : AppCompatActivity() {
             documentoId?.let { id ->
                 val tiendaActualizada = hashMapOf(
                     "nombre" to nombre.text.toString(),
-                    "idioma" to idioma.text.toString(),
-                    "moneda" to moneda.text.toString(),
-                    "precioDolar" to precioDolar.text.toString().toDouble()
+                    "direccion" to direccion.text.toString(),
+                    "contacto" to contacto.text.toString(),
+                    "fechaApertura" to fechaApertura.text.toString()
                 )
 
                 db.collection("tiendas").document(id).update(tiendaActualizada as Map<String, Any>)
@@ -77,14 +78,14 @@ class CRUDTienda : AppCompatActivity() {
                         val tienda = documents.documents[0]
 
                         val nombre = findViewById<EditText>(R.id.input_nombre_tienda)
-                        val idioma = findViewById<EditText>(R.id.input_idioma)
-                        val moneda = findViewById<EditText>(R.id.input_moneda)
-                        val precioDolar = findViewById<EditText>(R.id.input_precioDolar)
+                        val direccion = findViewById<EditText>(R.id.input_direccion)
+                        val contacto = findViewById<EditText>(R.id.input_contacto)
+                        val fechaApertura = findViewById<EditText>(R.id.input_fechaApertura)
 
                         nombre.setText(tienda.getString("nombre"))
-                        idioma.setText(tienda.getString("idioma"))
-                        moneda.setText(tienda.getString("moneda"))
-                        precioDolar.setText(tienda.getDouble("precioDolar").toString())
+                        direccion.setText(tienda.getString("direccion"))
+                        contacto.setText(tienda.getString("contacto"))
+                        fechaApertura.setText(tienda.getString("fechaApertura"))
 
                         // Guardar el ID del documento para usarlo durante la actualización
                         documentoId = tienda.id

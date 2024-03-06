@@ -28,13 +28,16 @@ class CRUDProducto : AppCompatActivity() {
             try {
                 val nombreProductoInput =
                     findViewById<EditText>(R.id.input_nombreProducto).text.toString()
-                val costoEntrada =
-                    findViewById<EditText>(R.id.input_costoLugar).text.toString().toDouble()
+                val precioUnitario =
+                    findViewById<EditText>(R.id.input_precioUnitario).text.toString().toDouble()
+                val cantidadDisponible =
+                    findViewById<EditText>(R.id.input_cantidadDisponible).text.toString().toDouble()
                 val disponible: Boolean = findViewById<Switch>(R.id.sw_disponible).isChecked
 
                 val nuevoProducto = hashMapOf(
                     "nombreProd" to nombreProductoInput,
-                    "costoEntrada" to costoEntrada,
+                    "precioUnitario" to precioUnitario,
+                    "cantidadDisponible" to cantidadDisponible,
                     "disponible" to disponible
                 )
 
@@ -74,9 +77,15 @@ class CRUDProducto : AppCompatActivity() {
             try {
                 val nombreProductoInput =
                     findViewById<EditText>(R.id.input_nombreProducto).text.toString()
-                val costoEntrada =
-                    findViewById<EditText>(R.id.input_costoLugar).text.toString().toDouble()
+                val precioUnitario =
+                    findViewById<EditText>(R.id.input_precioUnitario).text.toString().toDouble()
+
+                val cantidadDisponible =
+                    findViewById<EditText>(R.id.input_cantidadDisponible).text.toString().toDouble()
+
                 val disponible: Boolean = findViewById<Switch>(R.id.sw_disponible).isChecked
+
+
 
                 // Primero, encontramos el ID de la tienda usando el nombreTienda
                 db.collection("tiendas")
@@ -99,7 +108,8 @@ class CRUDProducto : AppCompatActivity() {
                                             .collection("productos").document(productoId)
                                             .update(
                                                 "nombreProd", nombreProductoInput,
-                                                "costoEntrada", costoEntrada,
+                                                "precioUnitario", precioUnitario,
+                                                "cantidadDisponible", cantidadDisponible,
                                                 "disponible", disponible
                                             )
                                             .addOnSuccessListener {
@@ -151,12 +161,16 @@ class CRUDProducto : AppCompatActivity() {
 
                                     val nombreProductoTuristico =
                                         findViewById<EditText>(R.id.input_nombreProducto)
-                                    val costoEntrada = findViewById<EditText>(R.id.input_costoLugar)
+                                    val precioUnitario = findViewById<EditText>(R.id.input_precioUnitario)
+                                    val cantidadDisponible = findViewById<EditText>(R.id.input_cantidadDisponible)
                                     val disponible = findViewById<Switch>(R.id.sw_disponible)
 
                                     nombreProductoTuristico.setText(producto.getString("nombreProd"))
-                                    costoEntrada.setText(
-                                        producto.getDouble("costoEntrada").toString()
+                                    precioUnitario.setText(
+                                        producto.getDouble("precioUnitario").toString()
+                                    )
+                                    cantidadDisponible.setText(
+                                        producto.getDouble("cantidadDisponible").toString()
                                     )
                                     disponible.isChecked =
                                         producto.getBoolean("disponible") ?: false
